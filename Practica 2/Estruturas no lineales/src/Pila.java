@@ -2,13 +2,13 @@ public class Pila {
 
     private Nodo cima;
 
-    public void apilar(int dato) {
+    public void push(int dato) {
         Nodo nuevo = new Nodo(dato);
         nuevo.siguiente = cima;
         cima = nuevo;
     }
 
-    public int desapilar() {
+    public int pop() {
         if (cima == null) {
             return -1;
         } else {
@@ -25,7 +25,38 @@ public class Pila {
             return cima.dato;
         }
     }
-
+    
+    public int acceder(int posicion) {
+        if (posicion < 0 || posicion >= size()) {
+            return -1;
+        }
+        Nodo actual = cima;
+        for (int i = 0; i < posicion; i++) {
+            actual = actual.siguiente;
+        }
+        return actual.dato;
+    }
+    
+    public int size() {
+        int size = 0;
+        Nodo actual = cima;
+        while (actual != null) {
+            size++;
+            actual = actual.siguiente;
+        }
+        return size;
+    }
+    
+    public boolean buscar(int dato) {
+        Nodo actual = cima;
+        while (actual != null) {
+            if (actual.dato == dato) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");

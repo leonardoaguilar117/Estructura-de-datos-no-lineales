@@ -33,6 +33,57 @@ public class Cola {
             return primero.dato;
         }
     }
+    
+    public int eliminarElemento() {
+        if (ultimo == null) {
+            return -1;
+        }
+        int dato = ultimo.dato;
+        if (primero == ultimo) {
+            primero = ultimo = null;
+        } else {
+            Nodo actual = primero;
+            while (actual.siguiente != ultimo) {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = null;
+            ultimo = actual;
+        }
+        return dato;
+    }
+    
+    public int buscarElemento(int elemento){
+    	Nodo aux = primero;
+    	while(aux.siguiente != null) {
+    		if(aux.dato == elemento){
+    			System.out.println("El item "+ elemento+ "se encuentra en la cola");
+    		}
+    		aux = aux.siguiente;
+    	}
+    	System.out.println("El item "+ elemento+ "se encuentra en la cola");
+    	return -1;
+    }
+    
+    public int acceder(int posicion) {
+        if (posicion < 0 || posicion >= size()) {
+            return -1;
+        }
+        Nodo actual = primero;
+        for (int i = 0; i < posicion; i++) {
+            actual = actual.siguiente;
+        }
+        return actual.dato;
+    }
+    
+    public int size() {
+        int size = 0;
+        Nodo actual = primero;
+        while (actual != null) {
+            size++;
+            actual = actual.siguiente;
+        }
+        return size;
+    }
 
     @Override
     public String toString() {

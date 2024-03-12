@@ -16,6 +16,7 @@ public class Lista {
         if (posicion < 0 || posicion >= size()) {
             return -1;
         }
+        
         if (posicion == 0) {
             return eliminarPrimero();
         } else if (posicion == size() - 1) {

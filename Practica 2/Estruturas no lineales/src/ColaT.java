@@ -25,6 +25,36 @@ public class ColaT<T> {
             return dato;
         }
     }
+    
+    public T buscarElemento(T elemento){
+    	NodoT<T> aux = primero;
+    	while(aux.siguiente != null) {
+    		if(aux.dato == elemento){
+    			System.out.println("El item "+ elemento+ "se encuentra en la cola");
+    		}
+    		aux = aux.siguiente;
+    	}
+    	System.out.println("El item "+ elemento+ "se encuentra en la cola");
+    	return null;
+    }
+    
+    public T eliminarElemento() {
+        if (ultimo == null) {
+            return null;
+        }
+        T dato = ultimo.dato;
+        if (primero == ultimo) {
+            primero = ultimo = null;
+        } else {
+            NodoT<T> actual = primero;
+            while (actual.siguiente != ultimo) {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = null;
+            ultimo = actual;
+        }
+        return dato;
+    }
 
     public T consultar() {
         if (primero == null) {
@@ -33,7 +63,28 @@ public class ColaT<T> {
             return primero.dato;
         }
     }
-
+    
+    public T acceder(int posicion) {
+        if (posicion < 0 || posicion >= size()) {
+            return null;
+        }
+        NodoT<T> actual = primero;
+        for (int i = 0; i < posicion; i++) {
+            actual = actual.siguiente;
+        }
+        return actual.dato;
+    }
+    
+    public int size() {
+        int size = 0;
+        NodoT<T> actual = primero;
+        while (actual != null) {
+            size++;
+            actual = actual.siguiente;
+        }
+        return size;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
