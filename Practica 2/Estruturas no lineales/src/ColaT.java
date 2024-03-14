@@ -28,13 +28,12 @@ public class ColaT<T> {
     
     public T buscarElemento(T elemento){
     	NodoT<T> aux = primero;
-    	while(aux.siguiente != null) {
+    	while(aux != null) {
     		if(aux.dato == elemento){
-    			System.out.println("El item "+ elemento+ "se encuentra en la cola");
+    			return aux.dato;
     		}
     		aux = aux.siguiente;
     	}
-    	System.out.println("El item "+ elemento+ "se encuentra en la cola");
     	return null;
     }
     
