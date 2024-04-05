@@ -1,24 +1,37 @@
-public class Main
-{
+public class Main{
+	
 	public static void main(String[] args) {
 		
 		ArbolBin arbol= new ArbolBin();
+		ArbolBin arbol1 = new ArbolBin();
+		
 		arbol.insertar(1);
 		arbol.insertar(2);
 		arbol.insertar(3);
 		arbol.insertar(4);
-		//arbol.insertar(5);
-		//arbol.insertar(6);
-		//arbol.insertar(7);
+		
+		arbol1.insertar(2);
+		arbol1.insertar(3);
+		arbol1.insertar(3);
+		arbol1.insertar(4);
+		
+		System.out.println("Arbol original: ");
 		arbol.preorden();
 		System.out.println("");
 		
-		arbol.inorden();
+		System.out.println("Arbol secundario: ");
+		arbol1.preorden();
 		System.out.println("");
 		
-		arbol.posorden();
 		
-		System.out.println(arbol.buscar(3));
+		
+		if(arbol.sonEquivalentes(arbol1) == true){
+			System.out.print("Son iguales");
+		}else {
+			System.out.print("Son diferentes");
+		}
+		
+		
 	
 	}
 }

@@ -115,4 +115,34 @@ public class ArbolBin{
     }
     
     
+    public boolean sonEquivalentes(ArbolBin otroArbol) {
+        return sonEquivalentesRecursivo(this.raiz, otroArbol.raiz);
+    }
+
+	private boolean sonEquivalentesRecursivo(Nodo nodo1, Nodo nodo2) {
+	        // Si ambos nodos son nulos, son equivalentes
+	        if (nodo1 == null && nodo2 == null) {
+	            return true;
+	        }
+	        // Si solo uno de los nodos es nulo, no son equivalentes
+	        if (nodo1 == null || nodo2 == null) {
+	            return false;
+	        }
+	        // Verificar si los datos de los nodos son diferentes
+	        if (nodo1.getDato() != nodo2.getDato()) {
+	            return false;
+	        }
+	        // Verificar recursivamente la estructura y los datos de los nodos izquierdos y derechos
+	        return sonEquivalentesRecursivo(nodo1.getIzq(), nodo2.getIzq()) && sonEquivalentesRecursivo(nodo1.getDer(), nodo2.getDer());
+	 }
+	
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
