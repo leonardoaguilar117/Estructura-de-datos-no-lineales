@@ -1,5 +1,6 @@
 import java.util.*;
 
+//Clase para las propiedades de instrumentos
 class Instrumento {
     private String nombre;
     private String codigo;
@@ -13,7 +14,7 @@ class Instrumento {
         this.descripcion = descripcion;
     }
 
-    // Getters y Setters
+    //---------------- Gets y sets --------------------
     public String getNombre() {
         return nombre;
     }
@@ -54,13 +55,13 @@ class CatalogoHash {
         this.instrumentos = new HashMap<>();
     }
 
-    // Método para agregar un nuevo instrumento al catálogo
+
     public void agregarInstrumento(String nombre, String codigo, double precio, String descripcion) {
         Instrumento instrumento = new Instrumento(nombre, codigo, precio, descripcion);
         instrumentos.put(codigo, instrumento);
     }
 
-    // Método para buscar un instrumento por nombre
+
     public Instrumento buscarPorNombre(String nombre) {
         for (Instrumento instrumento : instrumentos.values()) {
             if (instrumento.getNombre().equalsIgnoreCase(nombre)) {
@@ -70,12 +71,12 @@ class CatalogoHash {
         return null; // Si no se encuentra el instrumento
     }
 
-    // Método para buscar un instrumento por código
+
     public Instrumento buscarPorCodigo(String codigo) {
         return instrumentos.get(codigo);
     }
 
-    // Método para editar la información de un instrumento
+
     public void editarInstrumento(String codigo, String nuevoNombre, double nuevoPrecio, String nuevaDescripcion) {
         Instrumento instrumento = instrumentos.get(codigo);
         if (instrumento != null) {
@@ -87,19 +88,16 @@ class CatalogoHash {
         }
     }
 
-    // Método para eliminar un instrumento del catálogo
+
     public void eliminarInstrumento(String codigo) {
         instrumentos.remove(codigo);
     }
 
-    // Método para mostrar una lista de todos los productos del catálogo ordenados por diferentes criterios
     public List<Instrumento> listarProductos(Comparator<Instrumento> comparator) {
         List<Instrumento> listaOrdenada = new ArrayList<>(instrumentos.values());
         Collections.sort(listaOrdenada, comparator);
         return listaOrdenada;
     }
-
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -129,7 +127,7 @@ class CatalogoHash {
                     String codigo = scanner.nextLine();
                     System.out.println("Ingrese el precio del instrumento:");
                     double precio = scanner.nextDouble();
-                    scanner.nextLine(); // Limpiar el buffer
+                    scanner.nextLine(); 
                     System.out.println("Ingrese la descripcion del instrumento:");
                     String descripcion = scanner.nextLine();
                     catalogo.agregarInstrumento(nombre, codigo, precio, descripcion);
@@ -170,7 +168,7 @@ class CatalogoHash {
                     String nuevoNombre = scanner.nextLine();
                     System.out.println("Ingrese el nuevo precio del instrumento:");
                     double nuevoPrecio = scanner.nextDouble();
-                    scanner.nextLine(); // Limpiar el buffer
+                    scanner.nextLine(); 
                     System.out.println("Ingrese la nueva descripcion del instrumento:");
                     String nuevaDescripcion = scanner.nextLine();
                     catalogo.editarInstrumento(codigoEdicion, nuevoNombre, nuevoPrecio, nuevaDescripcion);
