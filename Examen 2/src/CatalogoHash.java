@@ -13,7 +13,6 @@ class Instrumento {
         this.precio = precio;
         this.descripcion = descripcion;
     }
-
     //---------------- Gets y sets --------------------
     public String getNombre() {
         return nombre;

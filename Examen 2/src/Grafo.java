@@ -11,13 +11,11 @@ class Grafo {
             adyacencias[i] = new LinkedList<>();
     }
 
-    // Método para agregar una arista al grafo
     public void agregarArista(int v, int w) {
         adyacencias[v].add(w);
         adyacencias[w].add(v);
     }
 
-    // Método para recorrer el grafo en anchura (BFS)
     public void BFS(int v, boolean[] visitado) {
         LinkedList<Integer> cola = new LinkedList<>();
         visitado[v] = true;
@@ -69,9 +67,9 @@ class Grafo {
         boolean[] visitado = new boolean[8];
         g.BFS(0, visitado);
 
-        // Verificar si el grafo es conexo
+        // Verificar si el grafo es convexo
         if (g.esConexo())
-            System.out.println("\nEl grafo es conexo.");
+            System.out.println("\nEl grafo es convxo.");
         else
             System.out.println("\nEl grafo no es conexo.");
     }
