@@ -13,7 +13,7 @@ def floyd_warshall(graph):
             if i != j and graph[i][j] != 0:
                 G.add_edge(i, j, weight=graph[i][j])
 
-    pos = nx.spring_layout(G)  # Layout para posicionar los nodos
+    pos = nx.spring_layout(G)
 
     labels = nx.get_edge_attributes(G, 'weight')
 
